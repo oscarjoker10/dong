@@ -35,7 +35,7 @@ function ScoreBoard()
 {
  color(225);
  stroke(250);
- text("DONG"w/2,800);
+ text("DONG",w/2,800);
  line(0,72,w+200,72);
  line(0,73,w+200,73);
  line(0  ,750,w+200,750);
