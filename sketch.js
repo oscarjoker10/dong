@@ -248,6 +248,7 @@ line(Width+197,73,Width+197,Height-100);
 line(Width+196,73,Width+196,Height-100);
 line(Width+195,73,Width+195,Height-100);
 line(Width+194,73,Width+194,Height-100);
+text("Player Controls = W & I = up, S & K = Down", (Width/2)-20, 30);
 
 
 }
