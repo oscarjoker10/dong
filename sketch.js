@@ -28,6 +28,15 @@ function ball()
  color(225);
  fill(225);
  ellipse(x,y,h,w);
+ if(x<0+w)
+ {
+ speedx=-speedx;
+ }
+ if(x>Width-32)
+ {
+ speedx=-speedx;
+ }
+ x=x+speedx;
  
 
 }
