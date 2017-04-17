@@ -32,7 +32,7 @@ function ball()
  {
  speedx=-speedx;
  }
- if(x>Width-32)
+ if(x>Width-w)
  {
  speedx=-speedx;
  }
@@ -44,10 +44,10 @@ function ScoreBoard()
 {
  color(225);
  stroke(250);
- text("DONG",w/2,800);
- line(0,72,w+200,72);
- line(0,73,w+200,73);
- line(0  ,750,w+200,750);
- line(0  ,751,w+200,751);
+ text("DONG",Width/2,800);
+ line(0,72,Width+200,72);
+ line(0,73,Width+200,73);
+ line(0  ,750,Width+200,750);
+ line(0  ,751,Width+200,751);
 }
  
