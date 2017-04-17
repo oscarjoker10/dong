@@ -1,6 +1,11 @@
+var HT = window.innerHeight;
+var WD = HT;
 function setup()
 {
-createCanvas(window.innerWidth(),window.innerHeight());
+ HT = HT - (HT%100);
+ WD = HT;
+createCanvas(WD + 200, HT);
+  frameRate(100);
  background(51);
 }
 function draw()
