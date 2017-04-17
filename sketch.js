@@ -4,7 +4,7 @@ var WD = HT;
 
  var speedx,speedy;
  //paddles
- var file; SoundFile back;
+ 
  var up1,down1,up2,down2,play;
  var paddlexL,paddleyL,paddlewL,paddlehL,paddlesL;
   var paddlexR,paddleyR,paddlewR,paddlehR,paddlesR;
