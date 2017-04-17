@@ -14,7 +14,7 @@ function draw()
 {
 text("version : 1",0,0);
  fill(225,0,0);
-
+ ball();
  ScoreBoard();
 }
 function ball()
