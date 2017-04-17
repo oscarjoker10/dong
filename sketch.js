@@ -4,7 +4,7 @@ var speedx,speedy;
 var x,y,h,w;
 function setup()
 {
- Height = Width - (h%100);
+ Height = Width - (Height%100);
  Width = Height;
 createCanvas(Width + 200, Height);
 background(0);
