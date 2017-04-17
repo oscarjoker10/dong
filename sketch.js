@@ -26,9 +26,10 @@ function ScoreBoard()
 {
  color(225);
  stroke(250);
+ text("DONG"WD/2,800);
  line(0,72,WD,72);
  line(0,73,WD,73);
- line(0  ,650,WD,650);
- line(0  ,651,WD,651);
+ line(0  ,750,WD+200,750);
+ line(0  ,751,WD+200,751);
 }
  
