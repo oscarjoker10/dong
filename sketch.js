@@ -12,6 +12,7 @@ background(0);
 function draw()
 {
 text("version : 1",0,0);
+ fill(225,0,0);
 ellipse(222,222,80.80);
 }
  
