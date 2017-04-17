@@ -1,35 +1,35 @@
 var Height = window.innerHeight
-var Width = Height;
+var Width = Height+300;
 var speedx,speedy;
 var textx =0;
 var x,y,h,w,dir;
-
- var up1,down1,up2,down2,play;
- var paddlexL,paddleyL,paddlewL,paddlehL,paddlesL;
-  var paddlexR,paddleyR,paddlewR,paddlehR,paddlesR;
-
+var Delay;
+var up1,down1,up2,down2,play; 
+var paddlexL,paddleyL,paddlewL,paddlehL,paddlesL;
+var paddlexR,paddleyR,paddlewR,paddlehR,paddlesR;
+var len1, len2;
 function setup()
 
 {
+
  //paddle Variables
   rectMode(CENTER);
   paddlexL=30;
   paddleyL =Height/2-60;
-  paddlewL=20;
+  paddlewL=15;
   paddlehL=100;
   paddlesL=7;
   //paddleR
-  paddlexR=Width+75;
+  paddlexR=Width-20;
   paddleyR =Height/2-60;
-  paddlewR=20;
+  paddlewR=15;
   paddlehR=100;
   paddlesR=7;
 
-Height = Width - (Height%100);
+Height = Height- (Height%100);
  
-Width = Height;
 
-createCanvas(Width + 200, Height);
+createCanvas(Width, Height);
 
 
 
@@ -47,6 +47,18 @@ dir=20;
 frameRate(150);
 smooth();
 noStroke();
+}
+function reset()
+{
+sleep(300);
+speedx=0;
+speedy=0;
+y=Height/2;
+x=Width/2;
+sleep(100);
+speedx=5;
+speedy=5;
+	
 }
 
 
@@ -73,8 +85,8 @@ function ball()
 {
  
 fill(225);
-rect(x+dir,y-10,-50,10);
-ellipse(x,y-20,h,w); 
+//rect(x+dir,y-10,-50,10);
+//ellipse(x,y-20,h,w); 
 ellipse(x,y,h,w);
  
 if(x<0+w)
@@ -82,13 +94,13 @@ if(x<0+w)
 {
  
 speedx=-speedx;
- 
+ reset();
 }
  
-if(x>Width+200-w)
+if(x>Width-w)
  
 {
- 
+reset();
 speedx=-speedx;
  
 }
@@ -104,12 +116,13 @@ if(y<Height-90-w)
 
 x=x+speedx;
 y=y+speedy;
-
+textAlign(RIGHT);
 textx=textx+1;
+textSize(15);
 text("Dong by Oscar Jimenez || Copyrighted: Dong Industries",textx,550);
-if(textx>Width+400)
+if(textx>Width)
 {
-d=-100;
+textx=-100;
 }
 }
 //makes paddle
@@ -218,20 +231,20 @@ function ScoreBoard()
 stroke(300);
  
  
-line(0,72,Width+200,72);
+line(0,72,Width,72);
  
-line(0,73,Width+200,73);
+line(0,73,Width,73);
 
-line(0,74,Width+200,74);
-line(0,75,Width+200,75);
+line(0,74,Width,74);
+line(0,75,Width,75);
  
-line(0  ,Height-100,Width+200,Height-100);
+line(0  ,Height-100,Width,Height-100);
  
-line(0  ,Height-101,Width+200,Height-101);
+line(0  ,Height-101,Width,Height-101);
 
-line(0  ,Height-102,Width+200,Height-102);
+line(0  ,Height-102,Width,Height-102);
  
-line(0  ,Height-103,Width+200,Height-103);
+line(0  ,Height-103,Width,Height-103);
 
 line(0,73,0,Height-100);
 line(1,73,1,Height-100);
@@ -241,15 +254,32 @@ line(4,73,4,Height-100);
 line(5,73,5,Height-100);
 line(6,73,6,Height-100);
 
-line(Width+200,73,Width+200,Height-100);
-line(Width+199,73,Width+199,Height-100);
-line(Width+198,73,Width+198,Height-100);
-line(Width+197,73,Width+197,Height-100);
-line(Width+196,73,Width+196,Height-100);
-line(Width+195,73,Width+195,Height-100);
-line(Width+194,73,Width+194,Height-100);
+line(Width+200,73,Width,Height-100);
+line(Width+199,73,Width,Height-100);
+line(Width+198,73,Width,Height-100);
+line(Width+197,73,Width,Height-100);
+line(Width+196,73,Width,Height-100);
+line(Width+195,73,Width,Height-100);
+line(Width+194,73,Width,Height-100);
+textAlign(CENTER);
+textSize(18);
 text("Player Controls = W & I = up, S & K = Down", (Width/2)-20, 30);
 
+ellipse(30,30,20,20);
+rect(60,40,50,10);
+ellipse(30,50,20,20);
 
+
+}
+function sleep(milliseconds) 
+{
+  	var start = new Date().getTime();
+ 	for (var i = 0; i < 1e7; i++) 
+ 	{
+    	if ((new Date().getTime() - start) > milliseconds)
+    	{
+      		break;
+    	}
+  	}
 }
  
