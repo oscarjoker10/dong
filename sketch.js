@@ -22,13 +22,13 @@ createCanvas(WD + 200, HT);
 function draw()
 {
 text("version 1",0,0);
-   ball((color(203,212,25)));
+   ball();
 }
- ball= new function(color col)
+ ball= new function()
 {
   
    //color(col);
-    fill(col);
+    fill(50,23,25);
    ellipse(x,y-20,h,w);
   
    rect(x+20,y-10,-50,10);
