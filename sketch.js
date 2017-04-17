@@ -5,5 +5,6 @@ createCanvas(window.innerWidth,window.innerHeight);
 }
 function draw();
 {
+text("version 1",0,0);
 ellipse(50, 50, 80, 80);
 }
