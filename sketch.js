@@ -85,8 +85,8 @@ function ball()
 {
  
 fill(225);
-//rect(x+dir,y-10,-50,10);
-//ellipse(x,y-20,h,w); 
+rect(x+dir,y-10,-50,10);
+ellipse(x,y-20,h,w); 
 ellipse(x,y,h,w);
  
 if(x<0+w)
