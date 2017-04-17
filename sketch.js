@@ -63,7 +63,7 @@ speedx=-speedx;
  
 }
  
-if(x>Width-w)
+if(x>Width+200-w)
  
 {
  
