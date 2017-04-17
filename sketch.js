@@ -22,9 +22,9 @@ createCanvas(WD + 200, HT);
 function draw()
 {
 text("version 1",0,0);
-   ball((color(r,g,b)));
+   ball((color(203,212,25)));
 }
-void ball(color col)
+ ball= new function(color col)
 {
   
    //color(col);
