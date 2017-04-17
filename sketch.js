@@ -1,17 +1,17 @@
-var h = window.innerHeight;
-var w = h;
+var Height = window.innerHeight;
+var Width = h;
 var speedx,speedy;
-var x,y,H,W;
+var x,y,h,w;
 function setup()
 {
- h = h - (h%100);
- w = h;
+ Height = Width - (h%100);
+ Width = Height;
 createCanvas(w + 200, h);
 background(0);
- W=25;
- H=25;
- y=h/2;
- x=w/2;
+ w=25;
+ h=25;
+ y=Height/2;
+ x=Width/2;
  
 
 }
@@ -22,29 +22,14 @@ text("version : 1",0,0);
  ball();
  ScoreBoard();
 }
+
 function ball()
 {
  color(225);
  fill(225);
- ellipse(x,y,H,W);
- if(x>w-W/2)
- {
- speedx=-speedx;
- }
- if(x<0+W/2)
- {
- speedx=-speedx;
- }
-if(y>650-H/2)
-{
-speedy=-speedy;
-}
- if(y<73+H/2)
-{
-speedy=-speedy;
-}
- x=x+speedx;
- y=y+speedy;
+ ellipse(x,y,h,w);
+ 
+
 }
 function ScoreBoard()
 {
