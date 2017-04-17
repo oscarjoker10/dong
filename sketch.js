@@ -1,15 +1,15 @@
 var HT = window.innerHeight;
 var WD = HT;
- int x,y,h,w,player1,player2,score=7,d;
+ var x,y,h,w,player1,player2,score=7,d;
 
- int speedx,speedy;
+ var speedx,speedy;
  //paddles
- SoundFile file; SoundFile back;
- boolean up1,down1,up2,down2,play;
- int paddlexL,paddleyL,paddlewL,paddlehL,paddlesL;
-  int paddlexR,paddleyR,paddlewR,paddlehR,paddlesR;
-  float r,g,b; int look;
-  int len1,len2;
+ var file; SoundFile back;
+ var up1,down1,up2,down2,play;
+ var paddlexL,paddleyL,paddlewL,paddlehL,paddlesL;
+  var paddlexR,paddleyR,paddlewR,paddlehR,paddlesR;
+  var r,g,b; int look;
+  var len1,len2;
 function setup()
 {
  HT = HT - (HT%100);
