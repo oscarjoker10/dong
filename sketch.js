@@ -1,12 +1,12 @@
 var Height = window.innerHeight;
-var Width = h;
+var Width = Height;
 var speedx,speedy;
 var x,y,h,w;
 function setup()
 {
  Height = Width - (h%100);
  Width = Height;
-createCanvas(w + 200, h);
+createCanvas(Width + 200, Height);
 background(0);
  w=25;
  h=25;
