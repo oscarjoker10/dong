@@ -11,12 +11,14 @@ function setup()
 {
     createCanvas(Width, Height);
     ship = new Ship();
-    aliens = new Alien(50,50);
+   // aliens = new Alien(50,50);
     // cum = new Cum(ship.x-10,ship.y-53);
     for (var i = 0; i < 18; i++)
     {
-        aliens[i] = new Alien(i * 40 + 40, 50);
-        
+        aliens[i] = new Alien(i * 40 + 60, 50);
+        aliens[i+18] = new Alien(i * 40 + 60, 100);
+	  aliens[i+36] = new Alien(i * 40 + 60, 150);
+
     }
 }
 function draw()
@@ -26,7 +28,7 @@ function draw()
     
    // cum.draw();
    // aliens.draw();
-    for (var i = 0; i <18; i++)
+    for (var i = 0; i <aliens.length; i++)
     {
         
         aliens[i].draw();
@@ -34,9 +36,17 @@ function draw()
     for (var i = 0; i < cum.length; i++)
     {
         cum[i].draw();
-        cum[i].update();
+        cum[i].update(); 
         if (cum[i].y < 0)
             cum.splice(i,1);
+	 for(var j=0; j<aliens.length; j++)
+		{
+		if (cum[i].hit(aliens[j]))
+		{
+		aliens.splice(j,1);
+		cum[i].delete = true;
+		}
+		}
     }
     
     if (keyIsDown(65))
@@ -62,8 +72,12 @@ function Ship()
     this.y = Height - 100;
     this.draw = function () {
         noStroke()
-        fill(255, 192, 203);
-        ellipse(this.x, this.y, 30, 30);
+        
+        fill(255, 153, 204);
+        ellipse(this.x-10, this.y-50, 20, 20);
+
+	   fill(255, 192, 203);
+	   ellipse(this.x,this.y,30,30);
         ellipse(this.x - 25, this.y, 30, 30);
         rect(this.x - 20, this.y, 20, -50);
         this.x = constrain(this.x, 28, Width - 22);
@@ -78,6 +92,9 @@ function Alien(x, y)
         fill(225);
         ellipse(this.x, this.y, 30, 30);
     }
+	
+
+	
 }
 function Cum(x,y)
 {
@@ -92,4 +109,15 @@ function Cum(x,y)
     {
         this.y -= cums;
     }
+    this.hit = function(aliens)
+	{
+	var d = dist(this.x,this.y,aliens.x,aliens.y);
+     if (d<30)
+	{
+	return true;
+	}else
+	{	
+	return false;
+	}
+	}
 }
