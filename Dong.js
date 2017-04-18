@@ -1,6 +1,7 @@
 var Height = window.innerHeight
 var Width = Height+300;
 var speedx,speedy;
+var adds;
 var textx =0;
 var x,y,h,w,dir;
 var Delay;
@@ -16,7 +17,7 @@ function setup()
 
 {
    
-    
+    adds=1;
     //paddle Variables
     player1 = 0; player2 = 0;
   rectMode(CENTER);
@@ -58,6 +59,7 @@ noStroke();
 }
 function reset()
 {
+adds=1;
 sleep(300);
 speedx=0;
 speedy=0;
@@ -213,7 +215,7 @@ function contactPadL()
   if (x-w/2<paddlexL + paddlewL/2 && y-h/2<paddleyL + paddlehL/2 && y+h/2>paddleyL - paddlehL/2)
   {
   // file.play();
-   speedx=-speedx;
+   speedx=-(speedx-adds);
    dir = -dir;
 
   // file.play();
@@ -221,7 +223,7 @@ function contactPadL()
    //g= random(225);
    //b= random(225);
    
-  
+  adds=+.5;
   }
   else if (x+w/2>paddlexR - paddlewR/2 && y-h/2<paddleyR + paddlehR/2 && y+h/2>paddleyR - paddlehR/2)
   {
@@ -232,8 +234,8 @@ function contactPadL()
    // r= random(225);
    //g= random(225);
    //b= random(225);
-    speedx=-speedx;
-  
+    speedx=-(speedx+adds);
+  adds=+.5;
   }
   
 }
