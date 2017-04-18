@@ -8,17 +8,25 @@ var up1,down1,up2,down2,play;
 var paddlexL,paddleyL,paddlewL,paddlehL,paddlesL;
 var paddlexR,paddleyR,paddlewR,paddlehR,paddlesR;
 var len1, len2;
+var player1, player2;
+
+
+
 function setup()
 
 {
-
- //paddle Variables
+   
+    
+    //paddle Variables
+    player1 = 0; player2 = 0;
   rectMode(CENTER);
   paddlexL=30;
   paddleyL =Height/2-60;
   paddlewL=15;
   paddlehL=100;
-  paddlesL=7;
+  paddlesL = 7;
+  len1 = 0;
+  len2 = 0;
   //paddleR
   paddlexR=Width-20;
   paddleyR =Height/2-60;
@@ -58,17 +66,19 @@ x=Width/2;
 sleep(100);
 speedx=5;
 speedy=5;
-	
+
 }
 
 
 function draw()
 
 {
+   
 contactPadL();
 background(0);
 color(225);
- text("version : 1",0,0);
+textSize(10);
+ text("version : 1",30,20);
 
 fill(225,0,0);
  
@@ -93,13 +103,17 @@ if(x<0+w)
  
 {
  
-speedx=-speedx;
+    speedx = -speedx;
+    len2 = +5;
+    player2 += 1;
  reset();
 }
  
 if(x>Width-w)
  
 {
+    player1 += 1;
+    len1 = +5;
 reset();
 speedx=-speedx;
  
@@ -118,8 +132,8 @@ x=x+speedx;
 y=y+speedy;
 textAlign(RIGHT);
 textx=textx+1;
-textSize(15);
-text("Dong by Oscar Jimenez || Copyrighted: Dong Industries",textx,550);
+textSize(30);
+text("Dong by Oscar Jimenez || Copyrighted: Dong Industries", textx, ((Height - 100)+Height)/2);
 if(textx>Width)
 {
 textx=-100;
@@ -200,7 +214,8 @@ function contactPadL()
   {
   // file.play();
    speedx=-speedx;
-   dir=-dir;
+   dir = -dir;
+
   // file.play();
    // r= random(225);
    //g= random(225);
@@ -210,7 +225,8 @@ function contactPadL()
   }
   else if (x+w/2>paddlexR - paddlewR/2 && y-h/2<paddleyR + paddlehR/2 && y+h/2>paddleyR - paddlehR/2)
   {
-    dir=-dir;
+      dir = -dir;
+   
 //    file.play();
  //  file.play();  
    // r= random(225);
@@ -262,12 +278,18 @@ line(Width+196,73,Width,Height-100);
 line(Width+195,73,Width,Height-100);
 line(Width+194,73,Width,Height-100);
 textAlign(CENTER);
-textSize(18);
+textSize(20);
 text("Player Controls = W & I = up, S & K = Down", (Width/2)-20, 30);
-
-ellipse(30,30,20,20);
-rect(60,40,50,10);
-ellipse(30,50,20,20);
+text("Player 1 : " + player1, width / 2 - 400, 30);
+text("Player 2 : " + player2, width / 2 + 400, 30);
+    //dont player 1
+ellipse(100, 50, 20, 20);
+ellipse(100, 30, 20, 20);
+rect(120 + len1, 40, 50 + len1, 10);
+    //dong player 2    
+ellipse(Width-100, 50, 20, 20);
+ellipse(Width - 100, 30, 20, 20);
+rect((Width - 120) - len2, 40, 50 + len2, 10);
 
 
 }
