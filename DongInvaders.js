@@ -15,9 +15,9 @@ function setup()
     // cum = new Cum(ship.x-10,ship.y-53);
     for (var i = 0; i < 18; i++)
     {
-        aliens[i] = new Alien(i * 40 + 60, 50);
-        aliens[i+18] = new Alien(i * 40 + 60, 100);
-	  aliens[i+36] = new Alien(i * 40 + 60, 150);
+        aliens[i] = new Alien(i * 40 + 50, 50);
+        aliens[i+18] = new Alien(i * 40 + 50, 100);
+	  aliens[i+36] = new Alien(i * 40 + 50, 150);
 
     }
 }
@@ -28,10 +28,18 @@ function draw()
     
    // cum.draw();
    // aliens.draw();
+	for(var i = cum.length-1; i>=0; i--)
+	{
+	if(cum[i].delete)
+	{
+	cum.splice(i,1);
+	}
+	}
     for (var i = 0; i <aliens.length; i++)
     {
         
         aliens[i].draw();
+	  aliens[i].update();
     }
     for (var i = 0; i < cum.length; i++)
     {
@@ -87,14 +95,31 @@ function Alien(x, y)
 {
     this.x = x;
     this.y = y;
+
+    this.xspeed=-1;
+    this.yspeed=0;
     this.draw = function ()
     {
         fill(225);
         ellipse(this.x, this.y, 30, 30);
     }
-	
+this.update = function()
+{
+this.x+= this.xspeed;
+this.y+= this.yspeed;
+ for(var i =0; i<aliens.length; i++)
+{
+if(aliens[i].x>30)
+{
+this.xspeed=-this.xspeed;
+}
+else if(aliens[x].x<Width)
+{
+this.xspeed=-this.xspeed;
+}
+}	
 
-	
+}	
 }
 function Cum(x,y)
 {
