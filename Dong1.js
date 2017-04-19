@@ -207,7 +207,7 @@ function keyReleased()
 function contactPadL()
 {
   
-  if (x-w/2<paddlexL + paddlewL/2 && y-h/2<paddleyL + paddlehL/2 && y+h/2>paddleyL - paddlehL/2)
+  if (x-w/2<paddlexL + paddlewL && y-h/2<paddleyL + paddlehL/2 && y+h/2>paddleyL - paddlehL/2)
   {
   // file.play();
    speedx=-(speedx-adds);
@@ -220,7 +220,7 @@ function contactPadL()
    
   adds=+.5;
   }
-  else if (x+w/2>paddlexR - paddlewR/2 && y-h/2<paddleyR + paddlehR/2 && y+h/2>paddleyR - paddlehR/2)
+  else if (x+w/2>paddlexR - paddlewR && y-h/2<paddleyR + paddlehR/2 && y+h/2>paddleyR - paddlehR/2)
   {
       dir = -dir;
    
