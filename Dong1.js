@@ -97,6 +97,8 @@ if (paddleyR < y) {
     up2 = false;
     down2 = true;
 }
+
+
 }
 
 
@@ -109,7 +111,7 @@ rect(x+dir,y-10,-50,10);
 ellipse(x,y-20,h,w); 
 ellipse(x,y,h,w);
  
-if(x<0+w)
+if(x<-20+w)
  
 {
  
@@ -119,7 +121,7 @@ if(x<0+w)
  reset();
 }
  
-if(x>Width-w)
+if(x>Width+20)
  
 {
     player1 += 1;
